@@ -29,7 +29,7 @@ Para solucionar esto aparece el PPO. Este metodo sirve para estabilizar del acto
 
 Para hacer esto se introduce una nueva funcion llamada "Funcion Objetivo Sustituto Recortado" que como el nombre indica va a restringir los cambios de politicas sustituyendo aquellos valores que sobrepasen los limites. 
 
-### Function Objetivo Sustituto Recortado
+### Funcion Objetivo Sustituto Recortado
 
 En vez de utilizar el logaritmo de la probabilidad de la accion en cierto estado, se utiliza el ratio de la probabilidad de la accion con la politica actual dividido la probabilidad de accion con la politica vieja.
 
@@ -48,3 +48,4 @@ Necesitamos restringir la funcion objetivo penalizando los cambios que esten fue
 
 Con la "Funcion Objetivo Sustituto Recortado" tenemos dos ratios de probabilidad, el ratio de valores que estan fuera de los limites y el ratio de valores que esta dentro de los limites (Entre [1−∈,1+∈]) siendo ∈ un hiperparametro que por lo general es 0.2.
 
+Esta funcion toma 
