@@ -25,4 +25,26 @@ El problema aparece en el tamaño de los pasos:
 * Si son pasos muy pequeños, la red neuronal tardara mas tiempo en converger a la solucion
 * Si son pasos muy grandes, la red neuronal nunca podra converger a la solucion completamente
 
-Para solucionar esto aparece el PPO. Este metodo sirve para estabilizar 
+Para solucionar esto aparece el PPO. Este metodo sirve para estabilizar del actor durante el entrenamiento limitando cada actualizacion.
+
+Para hacer esto se introduce una nueva funcion llamada "Funcion Objetivo Sustituto Recortado" que como el nombre indica va a restringir los cambios de politicas sustituyendo aquellos valores que sobrepasen los limites. 
+
+### Function Objetivo Sustituto Recortado
+
+En vez de utilizar el logaritmo de la probabilidad de la accion en cierto estado, se utiliza el ratio de la probabilidad de la accion con la politica actual dividido la probabilidad de accion con la politica vieja.
+
+![rrr](https://user-images.githubusercontent.com/95035101/207971692-f3f34111-742b-4343-acff-a52add2cbaf0.png)
+
+rt(Q) es el ratio de probabilidad entre la nueva y la vieja politica: 
+
+* Si rt(Q) > 1, la accion es mas probable en la politica actual que en la vieja.  
+* Si 0 < rt(Q) < 1, la accion es menos probable en la politica actual que en la vieja.  
+
+Sin embargo, si el ratio es mas probable en la politica actual que en la vieja, se podria llegar a una actualizacion excesiva de la politica.  
+
+Necesitamos restringir la funcion objetivo penalizando los cambios que esten fuera de un ratio (En el Paper oficial solo puede variar entre 0.8 y 1.2). Para hacer esto tenemos que aplicar la "Funcion Objetivo Sustituto Recortado". Esto nos asegurara que no tendremos cambios muy grandes en las actualizaciones de la politica.
+
+![download](https://user-images.githubusercontent.com/95035101/207981983-a7775b35-fe9e-484f-abfb-b7a77b22d6e0.svg)
+
+Con la "Funcion Objetivo Sustituto Recortado" tenemos dos ratios de probabilidad, el ratio de valores que estan fuera de los limites y el ratio de valores que esta dentro de los limites (Entre [1−∈,1+∈]) siendo ∈ un hiperparametro que por lo general es 0.2.
+
