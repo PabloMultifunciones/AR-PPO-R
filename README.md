@@ -52,6 +52,6 @@ Con la "Funcion Objetivo Sustituto Recortado" tenemos dos ratios de probabilidad
 
 Esta funcion toma el valor minimo de la funcion objetivo y de la funcion objetivo recortada. Esto nos ayuda a que NO nos volvamos muy codiciosos y hagamos actualizaciones que esten fuera del radio de confianza.
 
-![ffff](https://user-images.githubusercontent.com/95035101/208254264-0d6cef39-e7f8-4f77-bfff-df45ca34e1e8.png)
+![ffff](https://user-images.githubusercontent.com/95035101/208267791-094e173e-ff6a-4fd3-8028-ac159cb8003e.png)
 
 El componente A es un estimado de la ventaja que hay en un determinado estado S al tomar una determinada Accion. Si A > 0 quiere decir que la accion tomada en ese momento fue mejor que el promedio de las acciones tomadas en ese estado. Esto es asi porque la ventaja A se obtiene como la sustraccion entre la recompensa para una accion en un estado y la recompensa estimada por el critico por lo tanto si la ventaja es positiva significara que la accion que se tomo es mejor de lo que se esperaba.
