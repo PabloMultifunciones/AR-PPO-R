@@ -48,4 +48,6 @@ Necesitamos restringir la funcion objetivo penalizando los cambios que esten fue
 
 Con la "Funcion Objetivo Sustituto Recortado" tenemos dos ratios de probabilidad, el ratio de valores que estan fuera de los limites y el ratio de valores que esta dentro de los limites (Entre [1−∈,1+∈]) siendo ∈ un hiperparametro que por lo general es 0.2.
 
-Esta funcion toma 
+![rrrzz](https://user-images.githubusercontent.com/95035101/208219664-18c6ea4a-d8f1-41a7-8a66-dd56694ee211.png)  
+
+Esta funcion toma el valor minimo de la funcion objetivo y de la funcion objetivo clipeada. Esto nos ayuda a que NO nos volvamos muy codiciosos y hagamos actualizaciones que esten fuera del radio de confianza.
